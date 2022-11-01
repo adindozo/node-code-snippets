@@ -19,6 +19,7 @@
          <button type="submit">Login</button>
       </form>
    </section>
+  
 
    <section class="login">
       <h1>Sign in to your account</h1>
@@ -31,7 +32,22 @@
          <p>These credentials aren't in our system</p>
          <button type="submit">Login</button>
       </form>
-   </section>   
+     
+   </section>  
+   <p> <br>
+      <table>
+      <% locals.passwords.forEach((element,i) => { %> 
+         <tr>
+            <td>
+               <%=element  %> 
+            </td>
+            <td>
+               <%=i+1  %> 
+            </td>
+         </tr>
+      <% }); %>
+      </table> 
+   </p> 
   
 </body>
 </html>

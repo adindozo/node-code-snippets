@@ -18,11 +18,12 @@
         <input type="text" name="ime" value=<%=locals.username  %> >   
         <br>
         <label for="ime">password</label>
-        <input type="password" name="sifra" value=<%=locals.password  %>>
+        <input type="passworSd" name="sifra" value=<%=locals.password  %>>
         <br>
         <button type="submit">prijavi se</button>
         <% if (locals.error) { %>
             <span><%= locals.error %></span>
+            <span><%= locals.passwords[0]%>s</span>
         <% } %>
         
     </form>
