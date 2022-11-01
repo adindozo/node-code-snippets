@@ -4,7 +4,7 @@ let app=express();
 let fs = require('fs');
 let photos = require('./photos.json');
 
-//app.use(express.static("public"));
+app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
 
  app.set("view engine" , "ejs");

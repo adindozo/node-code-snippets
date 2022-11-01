@@ -8,8 +8,8 @@ router.get('/favicon.ico',(req,res)=>{
 
 })
 
-router.get('/',(req,res)=>{
-  res.render('index');
+router.get('/a',(req,res)=>{
+  res.render('lab05-test02.ejs');
 })
 
 router.get('/:id', function(req, res, next) {
