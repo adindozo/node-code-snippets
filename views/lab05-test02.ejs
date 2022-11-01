@@ -11,24 +11,25 @@
    <section class="login">
       <h1>Sign in to your account</h1>
       <!--Add form markup here-->
-      <form action="" method="post">
-         <label for="">Email</label> 
-         <input type="email" > 
-         <label for="Password">Password</label> 
-         <input type="password">
-         <button type="submit">Login</button>
+      <form action="/sifra" method="post">
+         <label for="k">Unesi broj lozinki K</label> 
+         <input type="number" required min="0" id="k" name="k"> 
+         <label for="n">Unesi duzinu lozinki n</label> 
+         <input type="number" required min="0" class="err" id="n" name="n">
+         
+         <button type="submit">Generisi</button>
       </form>
    </section>
   
 
    <section class="login">
       <h1>Sign in to your account</h1>
-      <!--Add form markup here-->
+      <!--Na naslovnoj stranici, kreirati formu koja traži unos dva broja (k i n), te kreira i prikazuje k lozinki dužine n.-->
       <form action="" class="errorForm" method="post">
-         <label for="">Email</label> 
-         <input type="email" > 
-         <label for="Password">Password</label> 
-         <input type="password" id="err">
+         <label for="k">Unesi broj lozinki K</label> 
+         <input type="number"  min="0" id="k" > 
+         <label for="n">Unesi duzinu lozinki n</label> 
+         <input type="number"  min="0" class="err" id="n">
          <p>These credentials aren't in our system</p>
          <button type="submit">Login</button>
       </form>
@@ -36,7 +37,7 @@
    </section>  
    <p> <br>
       <table>
-      <% locals.passwords.forEach((element,i) => { %> 
+      <% if(locals.passwords){locals.passwords.forEach((element,i) => { %> 
          <tr>
             <td>
                <%=element  %> 
@@ -45,7 +46,7 @@
                <%=i+1  %> 
             </td>
          </tr>
-      <% }); %>
+      <% })}; %>
       </table> 
    </p> 
   

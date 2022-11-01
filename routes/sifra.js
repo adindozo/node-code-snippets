@@ -13,6 +13,10 @@ router.get('/:k/:len', function(req, res) {
 
 });
 
+router.post('/',(req,res)=>{
+    res.redirect('/sifra/'+req.body.k+"/"+req.body.n);
+})
+
 // app.get('/:k/:len', function(req, res) {
 //     let pswrds=[];
 //     for(let i=0;i<req.params.k;i++){

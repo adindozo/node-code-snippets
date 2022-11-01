@@ -12,6 +12,10 @@ let generatePassword = require('password-generator')
 	
 // Na naslovnoj stranici, kreirati formu koja uz ranije pretpostavke ima i checkbox elemente za dodatni opis lozinke
 //  (sadrži velika slova, mala slova, brojeve i slično), te na osnovu označenog, kreira k lozinki dužine n sa naznačenim osobinama.
+app.get('/',(req,res)=>{
+  res.render("lab05-test02")
+})
+
 app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
 
@@ -20,9 +24,6 @@ app.use(express.urlencoded({extended: true}));
 
 let users=[];
 
-app.get('/iso',(req,res)=>{
-  res.json(users);
-})
 
 app.use("/sifra",require('./routes/sifra'));
 app.use("/",require('./routes/slash'));

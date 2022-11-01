@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var router = express.Router();
 let photosJson = require('../photos.json');
-
+//Na naslovnoj stranici, kreirati formu koja traži unos dva broja (k i n), te kreira i prikazuje k lozinki dužine n.
 router.get('/favicon.ico',(req,res)=>{
   res.sendFile(path.join(__dirname, '../sa.png'));
 
