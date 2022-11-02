@@ -29,3 +29,34 @@ table, td{
    border: 1px solid black;
    
 }
+input[type='checkbox']{
+   margin: 0px;
+   padding: 0px;
+   width: 20px;
+}
+
+label{
+   display: inline-block;
+   margin-top: 15px;
+   margin-bottom: 2px;
+}
+
+.checkboxP{
+  
+}
+
+label.L {
+   display: block;
+   padding-left: 15px;
+   text-indent: -15px;
+ }
+ input.L {
+   width: 13px;
+   height: 13px;
+   padding: 0;
+   margin:0;
+   vertical-align: bottom;
+   position: relative;
+   top: -1px;
+   *overflow: hidden;
+ }
