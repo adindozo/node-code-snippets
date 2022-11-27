@@ -1,13 +1,19 @@
 
 let express=require('express');
 let app=express();
+var path = require('path');
 let fs = require('fs');
 let photos = require('./photos.json');
 let generatePassword = require('password-generator')
-
+app.use((req,res,next) => {
+  console.log(req.url);
+  next();
+})
 //Kreirati rutu /sifra/:k/:len koja vraća k lozinki dužine len, te ih prikazuje u tabeli.
 // Na naslovnoj stranici, kreirati formu koja traži unos dva broja (k i n), te kreira i prikazuje k lozinki dužine n.
-	
+app.get('/gallery.js',(req,res)=>{
+  res.sendFile(__dirname +'/gallery.js');
+})	
 	
 	
 // Na naslovnoj stranici, kreirati formu koja uz ranije pretpostavke ima i checkbox elemente za dodatni opis lozinke
@@ -16,6 +22,10 @@ app.get('/',(req,res)=>{
   res.render("lab05-test02")
 })
 
+app.get('/lab2',(req,res)=>{
+  res.render("lab-test02")
+})
+ 
 app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
 
