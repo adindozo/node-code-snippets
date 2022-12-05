@@ -4,6 +4,8 @@ let app = express();
 let pg = require('pg');
 pg.defaults.max = 3;
 app.use(express.static("public"));
+app.set("view engine", "ejs");
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());       // to support JSON-encoded bodies
  // to support URL-encoded bodies
@@ -241,7 +243,6 @@ app.get('/lab2', (req, res) => {
 
 
 
-app.set("view engine", "ejs");
 
 
 let users = [];
