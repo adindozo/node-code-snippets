@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/removebutton.js"></script>
+</head>
+<body>
+    <!-- ispisuje tabelu svih pjesama u bazi. Napraviti dugmić uz svaki red u tabeli. Klikom na dugmić, pjesma se briše. -->
+    <table>
+        <tr>
+            <th>Ime</th>
+            <th>Izvodjac</th>
+            <th>Godina</th>
+            <th></th>
+        </tr>
+    <% for(let song of locals.songList){ %>
+    <tr id="<%= song.id %>">
+        <td><%= song.pjesma %> </td>
+        <td><%= song.izvodjac %> </td>
+        <td><%= song.godina %> </td>
+        <td><button id="remove" data-id="<%= song.id %>">Brisi</button></td>
+    </tr>    
+    <% } %>
+    </table> 
+</body>
+</html>

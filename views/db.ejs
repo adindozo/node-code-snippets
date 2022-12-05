@@ -7,13 +7,18 @@
     <title>Document</title>
 </head>
 <body>  
-    <% for(let row of locals.data) {%> 
+    <% for(let row of locals.data1) {%> 
         <p><%=row.string%></p> 
     <%}%>
+    <% if(locals.data2)for(let row of locals.data2) {%> 
+        <p><%=row.string%></p> 
+    <%}%>
+    <% let text = JSON.stringify( locals.data2) %> 
     
     <script>
-        console.log(`${<%= locals.data %>}`);
-        //onsole.log(<%= locals.err %>);
+        let a=0;
+        
+        console.log('<%=text %>');
         // if(local.data)console.log(locals.data)
         // if(local.err)console.log(locals.err)
     </script>
