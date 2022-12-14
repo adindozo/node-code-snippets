@@ -6,6 +6,9 @@ pg.defaults.max = 3;
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
+
+
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());       // to support JSON-encoded bodies
  // to support URL-encoded bodies
@@ -28,6 +31,49 @@ app.use((req, res, next) => {
     res.set('Cache-Control', 'no-store')
     next()
 })
+//socket.io test
+const http = require('http');
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
+app.get('/socket',(req,res) => {
+   res.sendFile(__dirname+'/index.html')
+})
+
+
+io.on('connection', (socket) => {
+    socket.on('typing-started',(nick)=>{
+        console.log('user started')
+        io.emit('typing-started',nick);
+    })
+    socket.on('typing-stopped',(nick)=>{
+        console.log('user stopped')
+        io.emit('typing-stopped',nick);
+    })
+
+    socket.on('disconnect',()=>{
+        console.log('dissconnected')
+
+    })
+    socket.on('user joined',(nick)=>{
+        io.emit('user joined', nick + ' joined the room!');
+    })
+    socket.on('chat message',(msg)=>{
+        io.emit('chat message',msg);
+    })
+    //Broadcast a message to connected users when someone connects or disconnects.
+});
+
+
+
+
+
+
+
+
+
+
+
 // Napraviti tabelu muzika u bazi podataka. Tabela sadrži podatke: id, pjesma, izvođač, godina.✔️
 
 // Napraviti Node aplikaciju sa rutom /muzika koja ispisuje tabelu svih pjesama u bazi. Napraviti dugmić uz svaki red u tabeli. Klikom na dugmić, pjesma se briše.✔️
@@ -274,4 +320,6 @@ app.post("/testforme", (req, res) => {
     //TODO app with account creating in runtime, when register return json from all users
 })
 
-app.listen(8080, () => console.log("srvr started at " + 8080));
+server.listen(3000, () => {
+    console.log('listening on *:3000');
+  });
